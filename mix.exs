@@ -32,6 +32,7 @@ defmodule StockEx.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.7.10"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
@@ -50,7 +51,13 @@ defmodule StockEx.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:tesla, "~> 1.8"},
+      {:hackney, "~> 1.20"},
+      {:exconstructor, "~> 1.2"},
+      {:money, "~> 1.12"},
+      {:mock, "~> 0.3.0", only: :test},
+      {:bypass, "~> 2.1", only: :test}
     ]
   end
 
