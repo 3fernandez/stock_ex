@@ -1,0 +1,24 @@
+<h1 class="text-center text-xl mb-6 font-semibold leading-8">
+  Listing Orders
+</h1>
+
+<table class="border-collapse border border-slate-400">
+  <thead>
+    <tr>
+      <th class="p-2 bg-gray-50 border border-slate-300">Position</th>
+      <th class="p-2 bg-gray-50 border border-slate-300">Ticker</th>
+      <th class="p-2 bg-gray-50 border border-slate-300">Price</th>
+      <th class="p-2 bg-gray-50 border border-slate-300">Shares</th>
+    </tr>
+  </thead>
+  <tbody id="orders">
+    <%= for order <- @orders do %>
+      <tr id={"order#{order.id}"}>
+        <td class="p-2 border border-slate-300"><%= order.type %></td>
+        <td class="p-2 border border-slate-300"><%= order.ticker_symbol %></td>
+        <td class="p-2 border border-slate-300"><%= Money.new(order.unit_price) %></td>
+        <td class="p-2 border border-slate-300"><%= order.shares_quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
