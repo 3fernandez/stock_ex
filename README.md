@@ -1,18 +1,28 @@
 # StockEx
 
-To start your Phoenix server:
+Just a simple project(kind of Investment Platform), to address the proposed code assignment from Treasury.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Setup
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+### Running the app:
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+*
+```sh
+git clone https://github.com/3fernandez/stock_ex
+cd stock_ex
+```
 
-## Learn more
+* If you are using `asdf` for package management, just run:
+```sh
+asdf install
+```
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+* Make sure copy `.env.example`, rename it to `.env`, set your own desired values and source it.
+
+* Run `mix setup` to install and setup dependencies.
+
+* Run `mix test` for the tests.
+
+* Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`, and visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+* After you create an account(register a user), go to: [`mailbox`](http://localhost:4000/dev/mailbox) in another tab, to confirm your registered account.
