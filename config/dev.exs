@@ -2,9 +2,10 @@ import Config
 
 # Configure your database
 config :stock_ex, StockEx.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
+  username: System.get_env("DB_USERNAME", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
+  hostname: System.get_env("DB_HOSTNAME", "localhost"),
+  port: System.get_env("PORT", "5432"),
   database: "stock_ex_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
@@ -64,6 +65,9 @@ config :stock_ex, StockExWeb.Endpoint,
 
 # Enable dev routes for dashboard and mailbox
 config :stock_ex, dev_routes: true
+
+# Treasury dev env API_KEY
+config :stock_ex, treasury_api_key: System.get_env("TREASURY_API_KEY")
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
