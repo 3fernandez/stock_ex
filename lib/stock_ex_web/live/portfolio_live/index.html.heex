@@ -1,0 +1,26 @@
+<h1 class="text-center text-xl mb-6 font-semibold leading-8">
+  Listing Portfolio
+</h1>
+
+<table class="border-collapse border border-slate-400">
+  <thead>
+    <tr>
+      <th class="p-2 bg-gray-50 border border-slate-300">Ticker</th>
+      <th class="p-2 bg-gray-50 border border-slate-300">Shares</th>
+      <th class="p-2 bg-gray-50 border border-slate-300">AVG Price</th>
+      <th class="p-2 bg-gray-50 border border-slate-300">Last Price</th>
+      <th class="p-2 bg-gray-50 border border-slate-300">Total Invested</th>
+    </tr>
+  </thead>
+  <tbody id="orders">
+    <%= for item <- @portfolio_items do %>
+      <tr>
+        <td class="p-2 border border-slate-300"><%= item.ticker_symbol %></td>
+        <td class="p-2 border border-slate-300"><%= item.total_shares_quantity %></td>
+        <td class="p-2 border border-slate-300"><%= Money.new(item.avg_price) %></td>
+        <td class="p-2 border border-slate-300"><%= Money.new(item.last_price) %></td>
+        <td class="p-2 border border-slate-300"><%= Money.new(item.shares_valuation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
