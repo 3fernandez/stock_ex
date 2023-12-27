@@ -1,0 +1,46 @@
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 p-12 max-w-7xl mx-auto"
+  id="stocks"
+  phx-change="set_value"
+>
+  <div
+    :for={{dom_id, stock} <- @streams.stocks}
+    id={dom_id}
+    class="flex flex-col bg-white hover:bg-gray-100 cursor-pointer border border-gray-400 shadow rounded-lg"
+    }
+  >
+    <div class="px-6 py-4 border-t border-gray-400">
+      <h3 class="text-lg leading-6 font-medium text-gray-900 pb-2">
+        <%= stock.name %>
+      </h3>
+      <b class="text-base text-gray-700">Expense Ratio:</b> <%= stock.expense_ratio_basis_points %>
+    </div>
+    <div class="px-6 py-4 border-t border-gray-400">
+      <b class="text-base text-gray-700">Symbol:</b> <%= stock.symbol %>
+    </div>
+    <div class="p-6 py-4 border-t border-gray-400">
+      <b class="text-base text-gray-700">Price:</b> <%= Money.new(stock.price) %>
+    </div>
+    <div class="p-6 py-4 border-t border-gray-400">
+      <div class="flex">
+        <input
+          type="number"
+          min="1"
+          value="1"
+          phx-hook="UpdateQuantity"
+          id="qty"
+          class="border border-gray-400 rounded-md w-16 mr-2"
+        />
+        <button
+          phx-click="buy"
+          phx-value-name={stock.name}
+          phx-value-symbol={stock.symbol}
+          phx-value-price={stock.price}
+          class="focus:outline-none focus:shadow-outline text-base bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-40"
+        >
+          Buy
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
